@@ -23,3 +23,5 @@ Suggests:
     spelling,
     tidyverse
 Language: en-US
+URL: https://github.com/fhui28/gdam
+BugReports: https://github.com/fhui28/gdam/issues
