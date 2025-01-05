@@ -10,7 +10,8 @@
   type = "response",
   se.fit = FALSE,
   coverage = 0.95,
-  na.action = na.pass
+  na.action = na.pass,
+  ...
 )
 }
 \arguments{
@@ -25,6 +26,8 @@
 \item{coverage}{Numeric. The coverage of the uncertainty intervals. Default is 0.95.}
 
 \item{na.action}{A function which indicates what should happen when \code{newdata} contain \code{NA} values. The default is \code{na.pass}; see \code{\link[mgcv:predict.gam]{mgcv::predict.gam()}} for more details.].}
+
+\item{...}{Currently not used.}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

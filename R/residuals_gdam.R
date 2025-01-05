@@ -7,6 +7,7 @@
 #'
 #' @param object A fitted `gdam` object.
 #' @param type The type of residuals to compute. Options are "response", "deviance", "pearson", "scaled_pearson", or "working".
+#' @param ... Currently not used.
 #'
 #' @return A vector of residuals.
 #'
@@ -23,7 +24,7 @@
 #' @importFrom stats naresid
 #' @md
 
-residuals.gdam <- function(object, type = "deviance") {
+residuals.gdam <- function(object, type = "deviance", ...) {
     if(!inherits(object, "gdam"))
         stop("model must be of class \"gdam\".")
 

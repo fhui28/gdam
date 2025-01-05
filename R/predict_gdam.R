@@ -11,6 +11,7 @@
 #' @param se.fit Logical. Should standard errors be returned? Default is `FALSE`.
 #' @param coverage Numeric. The coverage of the uncertainty intervals. Default is 0.95.
 #' @param na.action A function which indicates what should happen when `newdata` contain `NA` values. The default is `na.pass`; see [mgcv::predict.gam()] for more details.].
+#' @param ... Currently not used.
 #'
 #' @author
 #' Francis K.C. Hui <fhui28@gmail.com>
@@ -26,11 +27,12 @@
 #' @md
 
 predict.gdam <- function(object,
-                           newdata,
-                           type = "response",
-                           se.fit = FALSE,
-                           coverage = 0.95,
-                           na.action = na.pass) {
+                         newdata,
+                         type = "response",
+                         se.fit = FALSE,
+                         coverage = 0.95,
+                         na.action = na.pass,
+                         ...) {
 
     if(!inherits(object, "gdam"))
         stop("object must be of class \"gdam\".")

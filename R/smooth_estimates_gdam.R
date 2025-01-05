@@ -29,12 +29,16 @@
 #' See the main `gdam` help file for examples, particularly for constructing partial smooth plots.
 #' }
 #'
-#' @aliases smooth_estimates.gdam
 #' @export
+#' @md
+smooth_estimates <- function(object, ...) {
+    UseMethod("smooth_estimates")
+    }
+
+#' @export
+#' @rdname smooth_estimates
 #' @importFrom gratia smooth_estimates
 #' @md
-
-
 smooth_estimates.gdam <- function(object,
                                   select = NULL,
                                   n = 100,

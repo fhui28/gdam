@@ -4,12 +4,14 @@
 \alias{residuals.gdam}
 \title{Residuals from a fitted gdam model.}
 \usage{
-\method{residuals}{gdam}(object, type = "deviance")
+\method{residuals}{gdam}(object, type = "deviance", ...)
 }
 \arguments{
 \item{object}{A fitted \code{gdam} object.}
 
 \item{type}{The type of residuals to compute. Options are "response", "deviance", "pearson", "scaled_pearson", or "working".}
+
+\item{...}{Currently not used.}
 }
 \value{
 A vector of residuals.
