@@ -86,11 +86,11 @@
 #' appraise(fit_gdam)
 #'
 #' ## Automated partial smooth plots
-#' smooth_estimates(fit_gdam) %>%
+#' gdam::smooth_estimates(fit_gdam) %>%
 #' gratia::draw() & theme_bw()
 #'
 #' ## A bit more manual but customized partial smooth plots
-#' smooth_estimates(fit_gdam) %>%
+#' gdam::smooth_estimates(fit_gdam) %>%
 #' add_confint() %>%
 #' pivot_longer(x0:x3, values_to = "x", names_to = "covariate") %>%
 #' filter(!is.na(x)) %>%
