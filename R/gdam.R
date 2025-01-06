@@ -486,12 +486,19 @@ gdam <- function(gamObject,
     ##-----------------------------
     class(out) <- "gdam"
     out$Hscore <- .calc_Hscore(object = out)
-    {
-        sink("/dev/null")
-        s <- invisible(summary.gdam(object = out))
-        out$aic <- (-2*out$gamma_divergence + 2*sum(s$edf)) #' AIC: adopts the ideas of (https://doi.org/10.1080/03610926.2022.2155788)
-        sink(NULL)
-    }
+    s <- mgcv::gam(out$gamObject$formula,
+                   data = cbind(out$gamObject$model, wts = out$final_weights),
+                   weights = wts,
+                   sp = out$sp,
+                   scale = out$sigma2,
+                   method = "REML")
+    out$aic <- (-2*out$gamma_divergence + 2*sum(s$edf)) #' AIC: adopts the ideas of (https://doi.org/10.1080/03610926.2022.2155788)
+    # {
+    #     sink("/dev/null")
+    #     s <- invisible(summary.gdam(object = out))
+    #     out$aic <- (-2*out$gamma_divergence + 2*sum(s$edf)) #' AIC: adopts the ideas of (https://doi.org/10.1080/03610926.2022.2155788)
+    #     sink(NULL)
+    # }
 
     return(out)
     }
