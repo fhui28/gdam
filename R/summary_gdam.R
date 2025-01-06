@@ -32,8 +32,8 @@
 #' @md
 
 summary.gdam <- function(object,
-                           digits = max(3, getOption("digits") - 3),
-                           signif.stars = getOption("show.signif.stars"),
+                         digits = max(3, getOption("digits") - 3),
+                         signif.stars = getOption("show.signif.stars"),
                          ...) {
     if(!inherits(object, "gdam"))
         stop("model must be of class \"gdam\".")
