@@ -128,7 +128,7 @@ appraise.gdam <- function(model,
                                    line_col = line_col
     )
 
-    make_plots[[1]]$data$weights <- model$final_weights
+    make_plots[[1]]$data$weights <- model$final_weights[order(model$residuals)]
     make_plots[[1]]$layers[[2]] <- NULL
     make_plots[[1]] <- make_plots[[1]] +
         ggplot2::geom_point(aes_string(x = 'theoretical', y = 'residuals', color = 'weights')) +
