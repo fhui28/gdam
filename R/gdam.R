@@ -89,9 +89,9 @@
 #' gdam::smooth_estimates(fit_gdam) %>%
 #' gratia::draw() & theme_bw()
 #'
-#' ## A bit more manual but customized partial smooth plots
+#' ## A bit more manual but customized partial smooth plots -- all covariates
 #' gdam::smooth_estimates(fit_gdam) %>%
-#' add_confint() %>%
+#' gratia::add_confint() %>%
 #' pivot_longer(x0:x3, values_to = "x", names_to = "covariate") %>%
 #' filter(!is.na(x)) %>%
 #' ggplot() +
@@ -102,6 +102,20 @@
 #' sides = "b") +
 #' facet_wrap(. ~ covariate, scale = "free", nrow = 2) +
 #' theme_bw()
+#'
+#' ## A bit more manual but customized partial smooth plots -- one covariate
+#' ## but adding partial residuals
+#' simdat_expanded <- add_partial_residuals(data = simdat, model = fit_gdam, select = NULL)
+#' gdam::smooth_estimates(fit_gdam) %>%
+#' gratia::add_confint() %>%
+#' filter(.smooth == s(x0)) %>%
+#' ggplot() +
+#' geom_point(aes(x = x0, y = `s(x0)`, color = weights), data = simdat_expanded, cex = 1.5) +
+#' geom_line(aes(x = x0, y = .estimate), lwd = 1.2) +
+#' geom_ribbon(aes(ymin = .lower_ci, ymax = .upper_ci, x = x0), alpha = 0.2) +
+#' scale_color_viridis_c() +
+#' theme_bw()
+#'
 #'
 #' predict(fit_gdam, se.fit = TRUE)
 #'
