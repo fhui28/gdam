@@ -8,7 +8,7 @@
 
 <!-- badges: end -->
 
-`gdam` is an `R` package associated with the manuscript "Fast robust additive models using gamma divergence" by [Hui](https://francishui.netlify.app/) and others, which is currently in preparation.
+`gdam` is an `R` package associated with the manuscript "Fast robust additive models using gamma divergence" by [Hui](https://francishui.netlify.app/), [Ding](https://cbe.anu.edu.au/about/staff-directory/dr-ding-ding) and [Sugusawa](https://sites.google.com/view/ssugasawa/), which is currently in preparation.
 
 # Installation
 
