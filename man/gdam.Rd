@@ -58,6 +58,7 @@ Not all smooth specifications available in \code{mgcv} are supported let alone b
 Apologies in advance if you encounter any issues with these, but do email the author if encounter any issues or have a feature request.
 }
 \examples{
+\dontrun{
 library(mgcv)
 library(tidyverse)
 library(gratia)
@@ -135,6 +136,7 @@ predict(fit_gdam, se.fit = TRUE)
 cbind(simdat$f, fit_mgcv$fitted.values, fit_gdam$fitted_values) \%>\%
 t \%>\%
 dist()
+}
 
 
 \dontrun{
