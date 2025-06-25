@@ -35,9 +35,9 @@ add_partial_residuals.gdam <- function(data,
 
     sms <- gratia::smooths(model$gamObject)
     ## which were selected; select = NULL -> all selected
-    take <- gratia:::check_user_select_smooths(sms,
-                                              select = select,
-                                              partial_match = partial_match)
+    take <- .check_user_select_smooths2(sms,
+                                        select = select,
+                                        partial_match = partial_match)
     if (!any(take)) {
         stop("No smooth label matched 'select'. Try 'partial_match = TRUE'?", call. = FALSE)
         }
@@ -104,4 +104,72 @@ add_partial_residuals.gdam <- function(data,
     p_resids <- p_terms + w_resid
 
     return(as.data.frame(p_resids))
+    }
+
+
+
+#' @title Hidden function for Select smooths based on user's choices -- acknowledgements goes to Gavin Simpson for this!
+#' @noRd
+#' @noMd
+.check_user_select_smooths2 <- function(smooths, select = NULL,
+                                       partial_match = FALSE,
+                                       model_name = NULL) {
+    lenSmo <- length(smooths)
+    select <- if (!is.null(select)) {
+        lenSel <- length(select)
+        if (is.numeric(select)) {
+            if (lenSmo < lenSel) {
+                stop("Trying to select more smooths than are in the model.")
+                }
+            if (any(select > lenSmo)) {
+                stop("One or more indices in 'select' > than the number of smooths in the model.")
+                }
+            l <- rep(FALSE, lenSmo)
+            l[select] <- TRUE
+            l
+            }
+        else if (is.character(select)) {
+            take <- if (isTRUE(partial_match)) {
+                if (length(select) != 1L) {
+                    stop("When 'partial_match' is 'TRUE', 'select' must be a single string")
+                    }
+                grepl(select, smooths, fixed = TRUE)
+                } else {
+                smooths %in% select
+                }
+            # did we fail to match?
+            if (sum(take) < length(select)) {
+                # must have failed to match at least one of `smooth`
+                if (all(!take)) {
+                    stop("Failed to match any smooths in model",
+                         ifelse(is.null(model_name), "",
+                                paste0(" ", model_name)
+                         ),
+                         ".\nTry with 'partial_match = TRUE'?",
+                         call. = FALSE
+                    )
+                    } else {
+                    stop("Some smooths in 'select' were not found in model ",
+                         ifelse(is.null(model_name), "", model_name),
+                         ":\n\t",
+                         paste(select[!select %in% smooths], collapse = ", "),
+                         call. = FALSE)
+                    }
+                }
+            take
+            }
+        else if (is.logical(select)) {
+            if (lenSmo != lenSel) {
+                stop("When 'select' is a logical vector, 'length(select)' must equal\nthe number of smooths in the model.")
+            }
+            select
+            } else {
+            stop("'select' is not numeric, character, or logical.")
+            }
+        }
+    else {
+        rep(TRUE, lenSmo)
+        }
+
+    select
     }
