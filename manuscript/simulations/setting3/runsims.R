@@ -89,7 +89,7 @@ sim_fn <- function(seed = NULL,
                                    sp.method = "efs"),
                       silent = TRUE)
     if(inherits(fit_psidiv, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     rm(fl)
     toc <- proc.time()
@@ -99,9 +99,17 @@ sim_fn <- function(seed = NULL,
     #' ## GDAMs
     message("Fitting gdams")
     tic <- proc.time()
+    fit_gdam0 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 1e-6, control = list(rinse_and_repeat = 1)), silent = TRUE)
+    if(inherits(fit_gdam0, "try-error")) {
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        }
+    toc <- proc.time()
+    fit_gdam0$time_taken <- toc -tic
+
+    tic <- proc.time()
     fit_gdam001 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.01, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam001, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam001$time_taken <- toc -tic
@@ -109,7 +117,7 @@ sim_fn <- function(seed = NULL,
     tic <- proc.time()
     fit_gdam01 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.1, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam01, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam01$time_taken <- toc -tic
@@ -117,7 +125,7 @@ sim_fn <- function(seed = NULL,
     tic <- proc.time()
     fit_gdam02 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.2, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam02, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam02$time_taken <- toc -tic
@@ -125,7 +133,7 @@ sim_fn <- function(seed = NULL,
     tic <- proc.time()
     fit_gdam03 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.3, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam03, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam03$time_taken <- toc -tic
@@ -133,7 +141,7 @@ sim_fn <- function(seed = NULL,
     tic <- proc.time()
     fit_gdam04 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.4, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam04, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam04$time_taken <- toc -tic
@@ -141,13 +149,14 @@ sim_fn <- function(seed = NULL,
     tic <- proc.time()
     fit_gdam05 <- try(gdam(gamObject = fit_mgcv, gamma_tuning = 0.5, control = list(rinse_and_repeat = 1)), silent = TRUE)
     if(inherits(fit_gdam05, "try-error")) {
-        return(list(MSEP = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
+        return(list(ME = NA, interval_performance = NA, simdat_test = NA, time_taken = NA))
         }
     toc <- proc.time()
     fit_gdam05$time_taken <- toc -tic
 
-    select_hscore <- which.min(c(fit_gdam001$Hscore, fit_gdam01$Hscore, fit_gdam02$Hscore, fit_gdam03$Hscore, fit_gdam04$Hscore, fit_gdam05$Hscore))
-    fit_gdamhscore <- list(fit_gdam001, fit_gdam01, fit_gdam02, fit_gdam03, fit_gdam04, fit_gdam05)[[select_hscore]]
+    select_hscore <- which.min(c(fit_gdam0$Hscore, fit_gdam001$Hscore, fit_gdam01$Hscore, fit_gdam02$Hscore, fit_gdam03$Hscore, fit_gdam04$Hscore, fit_gdam05$Hscore))
+    fit_gdamhscore <- list(fit_gdam0, fit_gdam001, fit_gdam01, fit_gdam02, fit_gdam03, fit_gdam04, fit_gdam05)[[select_hscore]]
+    fit_gdamhscore$time_taken <- fit_gdam0$time_taken + fit_gdam001$time_taken + fit_gdam01$time_taken + fit_gdam02$time_taken + fit_gdam03$time_taken + fit_gdam04$time_taken + fit_gdam05$time_taken
     rm(select_hscore)
 
     ##-----------------------------
@@ -172,7 +181,7 @@ sim_fn <- function(seed = NULL,
                gdamhscore = predict(fit_gdamhscore, newdata = simdat_test, se.fit = FALSE)
                )
 
-    MSEP <- simdat_test %>%
+    ME <- simdat_test %>%
         mutate(across(gamfit:last_col(), ~ (.x - f)^2)) %>%
         dplyr::select(gamfit:last_col()) %>%
         colMeans
@@ -237,7 +246,7 @@ sim_fn <- function(seed = NULL,
 
 
     set.seed(NULL)
-    return(list(MSEP = MSEP,
+    return(list(ME = ME,
                 interval_performance = interval_performance,
                 simdat_test = simdat_test,
                 time_taken = all_time_taken))
