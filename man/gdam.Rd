@@ -64,7 +64,7 @@ library(tidyverse)
 library(gratia)
 
 # Simulate a additive model and add some outliers.
-set.seed(122024)
+set.seed(062025)
 simdat <- gamSim(eg = 7,
 n = 200,
 dist = "normal",

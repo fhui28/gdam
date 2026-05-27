@@ -2,3 +2,5 @@
 ^gdam\.Rproj$
 ^\.Rproj\.user$
 ^manuscript$
+^\.positai$
+^\.claude$
