@@ -246,9 +246,59 @@ sim_fn <- function(seed = NULL,
     }
 
 
+num_datasets <- 200
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0, true_sigma2 = 1)
+save(cw_results, file = "setting1_N200_sigma21_prob00.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0.05, true_sigma2 = 1)
+save(cw_results, file = "setting1_N200_sigma21_prob005.RData")
+rm(cw_results)
+
 cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0.1, true_sigma2 = 1)
 save(cw_results, file = "setting1_N200_sigma21_prob01.RData")
 rm(cw_results)
+
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0, true_sigma2 = 2)
+save(cw_results, file = "setting1_N200_sigma22_prob00.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0.05, true_sigma2 = 2)
+save(cw_results, file = "setting1_N200_sigma22_prob005.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, prob_outlier = 0.1, true_sigma2 = 2)
+save(cw_results, file = "setting1_N200_sigma22_prob01.RData")
+rm(cw_results)
+
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0, true_sigma2 = 1)
+save(cw_results, file = "setting1_N400_sigma21_prob00.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0.05, true_sigma2 = 1)
+save(cw_results, file = "setting1_N400_sigma21_prob005.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0.1, true_sigma2 = 1)
+save(cw_results, file = "setting1_N400_sigma21_prob01.RData")
+rm(cw_results)
+
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0, true_sigma2 = 2)
+save(cw_results, file = "setting1_N400_sigma22_prob00.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0.05, true_sigma2 = 2)
+save(cw_results, file = "setting1_N400_sigma22_prob005.RData")
+rm(cw_results)
+
+cw_results <- foreach(l0 = 1:num_datasets) %dopar% sim_fn(seed = l0, N = 400, prob_outlier = 0.1, true_sigma2 = 2)
+save(cw_results, file = "setting1_N400_sigma22_prob01.RData")
+rm(cw_results)
+
+
 
 
 ## ---------------
