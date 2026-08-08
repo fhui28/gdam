@@ -11,7 +11,6 @@ Maintainer: Francis Hui <fhui28@gmail.com>
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports: 
     colorspace,
     ggplot2,
@@ -25,3 +24,5 @@ Suggests:
 Language: en-US
 URL: https://github.com/fhui28/gdam
 BugReports: https://github.com/fhui28/gdam/issues
+Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.3
