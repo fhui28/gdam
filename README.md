@@ -18,6 +18,8 @@ Currently, `gdam` is available and can be installed from Github with the help of
 pak::pkg_install("fhui28/gdam")
 ```
 
+A `CRAN` package is currently in the works, and (hopefully!) will be available in the near future.
+
 <!-- Alternatively, or if the above does not work, you may download a (hopefully!) stable release of `COQUE` by choosing the latest release on the right hand side of this Github webpage. -->
 
 # Getting started

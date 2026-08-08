@@ -1,7 +1,7 @@
 Package: gdam
 Title: Fast robust additive models using gamma divergence
-Version: 0.1
-Date: 2025-07-01
+Version: 0.0.1
+Date: 2026-09-01
 Authors@R: c(
     person("Francis KC", "Hui", , "fhui28@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0765-3533"))
