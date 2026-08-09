@@ -34,8 +34,8 @@
 #' \item \code{gamma_divergence} The value of the gamma divergence at convergence.
 #' \item \code{gamObject} The original `gamObject` used to fit the additive model.
 #' \item \code{covariance_matrix} The estimated covariance matrix of the parameters, including of the residual variance (but not the smoothing parameters).
-#' \item \code{Hscore} The conditional Hyvarinen score (H-score) of the additive model. This is a measure that can be used to select the tuning parameter `gamma_tuning`, when comparing across difference `gdam` fits. The H-score calculation is based on the proposal of [Sugusawa and Yonekura, 2021](https://doi.org/10.3390/e23091147).
-#' \item \code{aic} The conditional Akaike Information Criterion (AIC) of the additive model. This is calculated as \eqn{-2 \times \text{gamma_divergence} + 2 \times \text{edf}}, where `edf` is the effective degrees of freedom of the additive model. Effectively adapts the idea of  [Kurara, 2024](https://doi.org/10.1080/03610926.2022.2155788); see also [mgcv::logLik.gam()].
+#' \item \code{Hscore} The conditional Hyvarinen score (H-score) of the additive model. This is a measure that can be used to select the tuning parameter `gamma_tuning`, when comparing across difference `gdam` fits. The H-score calculation is based on the proposal of Sugusawa and Yonekura (2021) \doi{10.3390/e23091147}.
+#' \item \code{aic} The conditional Akaike Information Criterion (AIC) of the additive model. This is calculated as \eqn{-2 \times \text{gamma\_divergence} + 2 \times \text{edf}}, where `edf` is the effective degrees of freedom of the additive model. Effectively adapts the idea of Kurara (2024) \doi{https://doi.org/10.1080/03610926.2022.2155788}; see also [mgcv::logLik.gam()].
 #' }
 #'
 #' @note

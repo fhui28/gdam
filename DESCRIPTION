@@ -1,13 +1,13 @@
 Package: gdam
-Title: Fast robust additive models using gamma divergence
+Title: Fast Robust Additive Models using Gamma Divergence
 Version: 0.0.1
 Date: 2026-09-01
 Authors@R: c(
     person("Francis KC", "Hui", , "fhui28@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0765-3533"))
            )
-Description: gdam is designed to be a computationally fast (at least at the time of development!) method for robust additive modeling based on the gamma divergence. The package works by assuming an identity link function and a normal distribution for the errors, and then applying the gamma divergence to the resulting restricted maximum likelihood function (REML) to produce a new loss function (hence the name gdam, which stands for gamma divergence additive models) that is design to be most robust to outlying observations. Because gdam takes a `gam` fit from the `mgcv` package as a starting point for optimization of the gamma divergence, and leverages some of the existing methods in the `mgcv` package for estimation and inference, then gadam can exploit many/some of the smoothing options available in the `mgcv` package for additive models.
-Maintainer: Francis Hui <fhui28@gmail.com>
+Description: This package is designed to be a computationally fast (at least at the time of development!) method for robust additive modeling based on the gamma divergence. The package works by assuming an identity link function and a normal distribution for the errors, and then applying the gamma divergence to the resulting restricted maximum likelihood function (REML) to produce a new loss function (hence the name gdam, which stands for gamma divergence additive models) that is design to be most robust to outlying observations. Because gdam takes a `gam` fit from the `mgcv` package as a starting point for optimization of the gamma divergence, and leverages some of the existing methods in the `mgcv` package for estimation and inference, then gdam can exploit many/some of the smoothing options available in the `mgcv` package for additive models.
+Maintainer: Francis KC Hui <fhui28@gmail.com>
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
