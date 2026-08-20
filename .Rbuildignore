@@ -4,3 +4,4 @@
 ^manuscript$
 ^\.positai$
 ^\.claude$
+^CRAN-SUBMISSION$
