@@ -53,6 +53,9 @@
 
 \item{...}{Currently not used.}
 }
+\value{
+A set of model diagnostic plots as per the original \code{\link[gratia:appraise]{gratia::appraise()}} function.
+}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
@@ -62,8 +65,8 @@ This function is basically a wrapper around the \code{\link[gratia:appraise]{gra
 Acknowledgments to Gavin Simpson and the \code{gratia} package for the original \code{\link[gratia:appraise]{gratia::appraise()}} function.
 }
 \examples{
-\dontrun{
-See the main `gdam` help file for examples.
+\donttest{
+# See the main `gdam` help file for examples.
 }
 
 }

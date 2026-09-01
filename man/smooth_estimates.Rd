@@ -50,8 +50,8 @@ This function is basically a wrapper around the \code{\link[gratia:smooth_estima
 Acknowledgments to Gavin Simpson and the \code{gratia} package for the original \code{\link[gratia:smooth_estimates]{gratia::smooth_estimates()}} function.
 }
 \examples{
-\dontrun{
-See the main `gdam` help file for examples, particularly for constructing partial smooth plots.
+\donttest{
+# See the main `gdam` help file for examples, particularly for constructing partial smooth plots.
 }
 
 }

@@ -48,7 +48,7 @@
 #' Francis K.C. Hui <fhui28@gmail.com>
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(mgcv)
 #' library(tidyverse)
 #' library(gratia)

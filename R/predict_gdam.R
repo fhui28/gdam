@@ -13,12 +13,14 @@
 #' @param na.action A function which indicates what should happen when `newdata` contain `NA` values. The default is `na.pass`; see [mgcv::predict.gam()] for more details.].
 #' @param ... Currently not used.
 #'
+#' @return A vector of predictions, or a data frame containing the predictions, standard errors, and uncertainty intervals.
+#'
 #' @author
 #' Francis K.C. Hui <fhui28@gmail.com>
 #'
 #' @examples
-#' \dontrun{
-#' See the main `gdam` help file for examples.
+#' \donttest{
+#' # See the main `gdam` help file for examples.
 #' }
 #'
 #' @export

@@ -25,8 +25,8 @@
 #' Francis K.C. Hui <fhui28@gmail.com>
 #'
 #' @examples
-#' \dontrun{
-#' See the main `gdam` help file for examples, particularly for constructing partial smooth plots.
+#' \donttest{
+#' # See the main `gdam` help file for examples, particularly for constructing partial smooth plots.
 #' }
 #'
 #' @export

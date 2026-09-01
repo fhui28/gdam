@@ -34,8 +34,8 @@ Takes a fitted \code{gdam} object and produces some useful \emph{post-hoc} summa
 The p-values are approximate and neglect smoothing parameter uncertainty. They are likely to be somewhat too low when smoothing parameter estimates are highly uncertain; please see the \code{\link[mgcv:summary.gam]{mgcv::summary.gam()}} help file for more details.
 }
 \examples{
-\dontrun{
-See the main `gdam` help file for examples.
+\donttest{
+# See the main `gdam` help file for examples.
 }
 
 }

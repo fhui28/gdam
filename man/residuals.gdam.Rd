@@ -22,8 +22,8 @@ A vector of residuals.
 Computes residuals from a fitted \code{gdam} object. The residuals can be of different types: "response" corresponds to the raw residuals, "deviance" corresponds to the deviance residuals (note these are slightly ad-hoc as the concept of deviance itself is not clearly defined in the case of gamma divergence; here the deviance residual is computed assuming normally distributed errors), "pearson" corresponds to the Pearson residuals, "scaled_pearson" corresponds to the Pearson residuals scaled by the square root of the estimated dispersion parameter, and "working" corresponds to the working residuals (i.e., the residuals from a post-hoc GAM fit, though in this case they should correspond to the raw response residuals).
 }
 \examples{
-\dontrun{
-See the main `gdam` help file for examples.
+\donttest{
+# See the main `gdam` help file for examples.
 }
 
 }

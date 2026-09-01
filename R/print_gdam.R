@@ -8,12 +8,14 @@
 #' @param x A fitted `gdam` object.
 #' @param ... Currently not used.
 #'
+#' @return Invisible output object.
+#'
 #' @author
 #' Francis K.C. Hui <fhui28@gmail.com>
 #'
 #' @examples
-#' \dontrun{
-#' See the main `gdam` help file for examples.
+#' \donttest{
+#' # See the main `gdam` help file for examples.
 #' }
 #'
 #' @export

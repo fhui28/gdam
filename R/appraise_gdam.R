@@ -20,6 +20,7 @@
 #' @param line_col Character. The color of the reference 1:1 line in the QQ plot, and the reference line in the residuals vs. linear predictor plot.
 #' @param ... Currently not used.
 #'
+#' @return A set of model diagnostic plots as per the original [gratia::appraise()] function.
 #'
 #' @note
 #' Acknowledgments to Gavin Simpson and the `gratia` package for the original [gratia::appraise()] function.
@@ -28,8 +29,8 @@
 #' Francis K.C. Hui <fhui28@gmail.com>
 #'
 #' @examples
-#' \dontrun{
-#' See the main `gdam` help file for examples.
+#' \donttest{
+#' # See the main `gdam` help file for examples.
 #' }
 #'
 #' @export

@@ -11,14 +11,17 @@
 
 \item{...}{Currently not used.}
 }
+\value{
+Invisible output object.
+}
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 This function prints out some details of the fitted \code{gdam} object in a human-readable format, similar to that of \code{\link[mgcv:print.gam]{mgcv::print.gam()}}. This includes the tuning parameter used, the formula, the estimated degrees of freedom, and the gamma divergence. Note the \strong{estimated degrees of freedom should be taken with a grain of salt}, as they are estimated from a post-hoc GAM fit (we conjecture that they are likely to be marginally underestimated).
 }
 \examples{
-\dontrun{
-See the main `gdam` help file for examples.
+\donttest{
+# See the main `gdam` help file for examples.
 }
 
 }
