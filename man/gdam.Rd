@@ -139,7 +139,7 @@ dist()
 }
 
 
-\dontrun{
+\donttest{
 # Checking various selection criteria -- mainly for choosing the gamma tuning parameter
 # Personally we prefer using the H-score for this as it is slightly more
 # principled in its construction for gamma divergence
